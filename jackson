@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Random Tiny Website</title>
+    <style>
+        /* Base Styling & Theme Variables */
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-color: #6c5ce7;
+            --button-bg: #2d3436;
+            --button-text: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1e272e;
+            --card-bg: #2f3640;
+            --text-color: #f5f6fa;
+            --accent-color: #00d2d3;
+            --button-bg: #f5f6fa;
+            --button-text: #2d3436;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Card Layout */
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--accent-color), #a8a5e6);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Buttons and Interactive Elements */
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="avatar">🚀</div>
+        <h1>Welcome Friend!</h1>
+        <p>This is a random single-page website layout built instantly using plain HTML, CSS, and basic JavaScript. Ready for your custom content.</p>
+        
+        <div class="btn-container">
+            <button class="btn theme-toggle" id="themeBtn">Toggle Dark Mode</button>
+            <a href="https://example.com" target="_blank" class="btn">Explore More</a>
+        </div>
+    </div>
+
+    <script>
+        const themeBtn = document.getElementById('themeBtn');
+        
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtn.textContent = 'Toggle Dark Mode';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtn.textContent = 'Toggle Light Mode';
+            }
+        });
+    </script>
+
+</body>
+</html>
